@@ -1,0 +1,1 @@
+"""Database and indexing initialization package."""

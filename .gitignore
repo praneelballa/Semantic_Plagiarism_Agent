@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environments
+venv/
+.venv/
+ENV/
+env/
+test_venv/
+
+# Environment Variables & Credentials
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node / Frontend Artifacts
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Machine Specific & OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary runtime indexes
+data/indexes/*.index
+data/indexes/*.db
+data/uploads/*
+!data/uploads/.gitkeep

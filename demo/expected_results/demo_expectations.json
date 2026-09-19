@@ -1,0 +1,29 @@
+{
+  "scenario_1_corpus_ingestion": {
+    "files": ["reference_material.pdf", "reference_material_2.txt"],
+    "expected_status": "Indexed into FAISS & SQLite",
+    "minimum_expected_chunks": 4
+  },
+  "scenario_2_cross_lingual": {
+    "source_language": "en",
+    "submission_language": "hi",
+    "expected_lexical_similarity": "very_low_or_zero",
+    "expected_semantic_similarity": "high_greater_than_0.70",
+    "expected_match_type": "Near-Direct Translation / Semantic Theft"
+  },
+  "scenario_3_document_paraphrase": {
+    "expected_coverage_range": "26_to_100_percent",
+    "expected_risk_band": "Moderate or Severe",
+    "expected_match_type": "Paraphrased Semantic Theft"
+  },
+  "scenario_4_code_ast": {
+    "expected_structural_similarity": "greater_than_0.90",
+    "expected_variable_renaming_detected": true,
+    "expected_classification": "Semantic Code Logic Match (High Confidence Refactor)"
+  },
+  "scenario_5_audio_speech": {
+    "expected_modality": "audio",
+    "expected_match_type": "Cross-Modal Audio",
+    "expected_matched_source": "reference_material.pdf"
+  }
+}

@@ -1,0 +1,1 @@
+Machine learning models identify patterns in data. They utilize training algorithms to predict unseen outcomes. Modern deep architectures generalize across complex domains.

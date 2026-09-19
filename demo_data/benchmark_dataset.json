@@ -1,0 +1,107 @@
+[
+  {
+    "id": "case_01_exact_copy",
+    "modality": "text",
+    "category": "Exact Copy",
+    "description": "Verbatim text copied directly without modifications",
+    "expected_plagiarized": true,
+    "source": "Deep neural network architectures have revolutionized natural language processing by learning hierarchical distributed representations.",
+    "suspect": "Deep neural network architectures have revolutionized natural language processing by learning hierarchical distributed representations.",
+    "source_lang": "en",
+    "suspect_lang": "en"
+  },
+  {
+    "id": "case_02_word_paraphrase",
+    "modality": "text",
+    "category": "Word-Level Paraphrase",
+    "description": "Direct synonym swaps preserving grammatical sentence structure",
+    "expected_plagiarized": true,
+    "source": "Machine learning systems identify patterns in data to forecast numerical outcomes.",
+    "suspect": "Machine learning algorithms detect regularities in datasets to predict numeric results.",
+    "source_lang": "en",
+    "suspect_lang": "en"
+  },
+  {
+    "id": "case_03_heavy_paraphrase",
+    "modality": "text",
+    "category": "Heavy Paraphrase",
+    "description": "Comprehensive structural rephrasing with near-zero lexical overlap",
+    "expected_plagiarized": true,
+    "source": "Machine learning models identify patterns in data.",
+    "suspect": "ML algorithms discover relationships within datasets.",
+    "source_lang": "en",
+    "suspect_lang": "en"
+  },
+  {
+    "id": "case_04_cross_lingual_hindi",
+    "modality": "text",
+    "category": "English -> Hindi Translation",
+    "description": "Cross-lingual conceptual translation into Devanagari script",
+    "expected_plagiarized": true,
+    "source": "Machine learning models identify patterns in data.",
+    "suspect": "मशीन लर्निंग मॉडल डेटा में पैटर्न की पहचान करते हैं।",
+    "source_lang": "en",
+    "suspect_lang": "hi"
+  },
+  {
+    "id": "case_05_cross_lingual_telugu",
+    "modality": "text",
+    "category": "English -> Telugu Translation",
+    "description": "Cross-lingual translation into Dravidian Telugu script",
+    "expected_plagiarized": true,
+    "source": "Machine learning models identify patterns in data.",
+    "suspect": "మెషిన్ లెర్నింగ్ మోడల్స్ డేటాలోని నమూనాలను గుర్తిస్తాయి.",
+    "source_lang": "en",
+    "suspect_lang": "te"
+  },
+  {
+    "id": "case_06_unrelated_text",
+    "modality": "text",
+    "category": "Unrelated Text",
+    "description": "Distinct topical content serving as negative control",
+    "expected_plagiarized": false,
+    "source": "Photosynthesis is the biological mechanism by which plants convert sunlight into chemical energy.",
+    "suspect": "Central banks determine national monetary policy and manage interest rates to control inflation.",
+    "source_lang": "en",
+    "suspect_lang": "en"
+  },
+  {
+    "id": "case_07_audio_transcript",
+    "modality": "audio_transcript",
+    "category": "Audio Transcript Similarity",
+    "description": "Spoken lecture transcript matched against an academic textbook",
+    "expected_plagiarized": true,
+    "source": "Modern deep learning architectures generalize effectively across complex multi-task computational domains.",
+    "suspect": "Deep learning architectures generalize effectively across complex computational domains.",
+    "source_lang": "en",
+    "suspect_lang": "en",
+    "timestamp_reference": "14.2s - 28.1s"
+  },
+  {
+    "id": "case_08_code_variable_renaming",
+    "modality": "code",
+    "category": "Python Variable Renaming",
+    "description": "Exact logic flow with renamed variables and cosmetic comments",
+    "expected_plagiarized": true,
+    "source": "def calculate_sum(numbers):\n    total = 0\n    for n in numbers:\n        total += n\n    return total",
+    "suspect": "def get_total(data_list):\n    # Renamed accumulator\n    accumulator = 0\n    for element in data_list:\n        accumulator += element\n    return accumulator"
+  },
+  {
+    "id": "case_09_code_loop_refactoring",
+    "modality": "code",
+    "category": "Python Loop Refactoring",
+    "description": "Procedural accumulation converted to functional idiom",
+    "expected_plagiarized": true,
+    "source": "def find_evens(nums):\n    res = []\n    for x in nums:\n        if x % 2 == 0:\n            res.append(x)\n    return res",
+    "suspect": "def get_even_items(val_list):\n    # Refactored comprehension with identical AST intent\n    filtered_elements = [item for item in val_list if item % 2 == 0]\n    return filtered_elements"
+  },
+  {
+    "id": "case_10_unrelated_code",
+    "modality": "code",
+    "category": "Completely Unrelated Code",
+    "description": "Distinct algorithms with unrelated control flow syntax",
+    "expected_plagiarized": false,
+    "source": "def binary_search(arr, target):\n    low, high = 0, len(arr) - 1\n    while low <= high:\n        mid = (low + high) // 2\n        if arr[mid] == target:\n            return mid\n        elif arr[mid] < target:\n            low = mid + 1\n        else:\n            high = mid - 1\n    return -1",
+    "suspect": "def compute_rectangle_area(width, height):\n    if width <= 0 or height <= 0:\n        raise ValueError('Dimensions must be positive')\n    area = width * height\n    return area"
+  }
+]

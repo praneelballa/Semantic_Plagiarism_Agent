@@ -1,0 +1,102 @@
+8. Demonstration Workflow for Hackathon JudgesCorpus Ingestion: Open the Streamlit or React dashboard, navigate to Corpus Management, and upload 1–2 reference textbooks or papers.Cross-Lingual Demonstration: Navigate to Cross-Lingual Detection and input an English reference alongside a Hindi/Telugu translation. Show that lexical Jaccard is 0.0% while semantic similarity is $> 0.70$.Paraphrase Document Audit: Upload a suspect document with rephrased sentences. Display the word-token coverage badge, risk band, and side-by-side passage diffs.Code AST Verification: Navigate to Code Analysis and compare an original function against a renamed refactor. Demonstrate that structural similarity reaches 100% and variable renaming is flagged.Cross-Modal Audio: Upload a spoken .wav or .mp3 clip. Show the real-time Whisper transcript, timestamped intervals, and matched text citations.
+
+
+### End-to-End Operational Manual
+
+#### 1. Complete Project Directory Structure
+
+```text
+semantic-plagiarism-agent/
+├── .env.example
+├── .gitignore
+├── ARCHITECTURE.md
+├── README.md
+├── streamlit_demo.py
+│
+├── backend/
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── main.py
+│   │   ├── api/
+│   │   │   ├── __init__.py
+│   │   │   └── v1/
+│   │   │       ├── __init__.py
+│   │   │       ├── api.py
+│   │   │       └── endpoints/
+│   │   │           ├── __init__.py
+│   │   │           ├── analyze.py
+│   │   │           ├── corpus.py
+│   │   │           └── health.py
+│   │   ├── core/
+│   │   │   ├── __init__.py
+│   │   │   ├── ast_normalizer.py
+│   │   │   ├── audio_chunker.py
+│   │   │   ├── chunker.py
+│   │   │   ├── code_engine.py
+│   │   │   ├── comparator.py
+│   │   │   ├── coverage.py
+│   │   │   ├── document_loader.py
+│   │   │   ├── embedder.py
+│   │   │   ├── language_detector.py
+│   │   │   ├── lexical.py
+│   │   │   ├── logging.py
+│   │   │   ├── normalizer.py
+│   │   │   ├── pipeline.py
+│   │   │   ├── reranker.py
+│   │   │   ├── scorer.py
+│   │   │   └── whisper_transcriber.py
+│   │   ├── db/
+│   │   │   ├── __init__.py
+│   │   │   ├── faiss_index.py
+│   │   │   └── models.py
+│   │   └── schemas/
+│   │       ├── __init__.py
+│   │       └── analysis.py
+│   └── tests/
+│       ├── __init__.py
+│       ├── test_health.py
+│       ├── test_phase2.py
+│       ├── test_phase3.py
+│       ├── test_phase4.py
+│       ├── test_phase5.py
+│       ├── test_phase6.py
+│       ├── test_phase7_audio.py
+│       ├── test_phase8_code.py
+│       ├── test_phase9_reranker.py
+│       └── test_phase12_eval.py
+│
+├── demo_data/
+│   └── benchmark_dataset.json
+│
+├── evaluation/
+│   ├── __init__.py
+│   └── evaluate.py
+│
+├── frontend/
+│   ├── index.html
+│   ├── package.json
+│   ├── postcss.config.js
+│   ├── tailwind.config.js
+│   ├── tsconfig.json
+│   ├── vite.config.ts
+│   └── src/
+│       ├── App.tsx
+│       ├── api.ts
+│       ├── index.css
+│       ├── main.tsx
+│       └── components/
+│           ├── AudioMatch.tsx
+│           ├── CodeASTDiff.tsx
+│           ├── LanguageBadge.tsx
+│           ├── MatchViewer.tsx
+│           ├── RiskOverview.tsx
+│           ├── ScoreBadge.tsx
+│           └── UploadPanel.tsx
+│
+└── data/
+    ├── corpus/
+    ├── indexes/
+    └── uploads/

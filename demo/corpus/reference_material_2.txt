@@ -1,0 +1,3 @@
+Dimensionality Reduction and Unsupervised Feature Extraction
+
+Unsupervised machine learning discovers latent clusters and structural manifolds without explicit ground-truth targets. Principal component analysis identifies orthogonal vectors that maximize variance across high-dimensional feature spaces. Clustering techniques segment unstructured observations into homogeneous semantic partitions. These statistical abstractions empower automated recommendation engines, anomaly detectors, and cross-modal retrieval indices.
