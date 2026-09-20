@@ -350,7 +350,7 @@ if demo_action:
             st.caption("ℹ️ Audio processed via verified speech transcript fallback (ASR container offloaded).")
             analysis_aud = AnalysisPipeline.analyze_document(
                 file_bytes=script_fallback.encode("utf-8"),
-                filename="reference_material.pdf",
+                filename="speech_script.txt",  # <-- FIXED: Routes correctly to load_txt()
                 modality="text",
                 top_k=5,
             )
